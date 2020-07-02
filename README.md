@@ -17,10 +17,11 @@ Basta clonar o repositorio e editar o arquivo *appsettings.json* adicionando/edi
 
 ```
   "ConnectionStrings": {
-    "DefaultConnection": "Server=Nome do servidor; 
-    Database= Nome da Base de dados; 
-    pwd=Senha de acesso do BD; 
-    User ID= Usuario do BD";
+    "DefaultConnection": 
+      "Server=Nome do servidor; 
+      Database= Nome da Base de dados; 
+      pwd=Senha de acesso do BD; 
+      User ID= Usuario do BD";
   },
 ```
 
