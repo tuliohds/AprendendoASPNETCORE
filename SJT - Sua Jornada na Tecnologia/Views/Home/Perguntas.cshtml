@@ -1,0 +1,50 @@
+﻿@model SJT___Sua_Jornada_na_Tecnologia.Models.ViewModels.ViewModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<style>
+
+    .desc {
+        padding: 5px;
+        border: 2px solid;
+        background-color: #dff0d8;
+        border-color: #d6e9c6;
+        margin-left: 10px;
+        margin-bottom: 10px;
+    }
+
+    @@media screen and (max-width: 1000px) {
+        .desc {
+            margin-right: 8px;
+            margin-bottom: 10px;
+        }
+    }
+
+    .desc:hover {
+        background-color: #497d34;
+        border-color: #497d34;
+        color: white;
+    }
+</style>
+
+@foreach (var item in Model.Perguntas)
+{
+    <div class="container">
+        <div class="row">
+            <p>@item.Descricao</p>
+        </div>
+        <div class="row">
+            @foreach (var pergunta in item.Respostas)
+            {
+
+                <div class="col-sm-5 text-center desc" onclick="clickhandle(@pergunta.RespostaId, @item.PerguntaId)" type="button">
+                    <p> @pergunta.Descricao</p>
+                    @*@Html.ActionLink("Nome do Link", "Home", new { pergunta.RespostaId });*@
+                    
+                </div>
+            }
+        </div>
+    </div>
+}
+

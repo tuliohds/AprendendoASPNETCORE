@@ -49,6 +49,28 @@ namespace SJT___Sua_Jornada_na_Tecnologia.Controllers
             return View();
         }
 
+        public IActionResult Perguntas()
+        {
+            IEnumerable<Pergunta> perguntas = sjtRN.ListarPerguntas().ToList();
+
+            ViewModel viewModel = new ViewModel()
+            {
+                Perguntas = perguntas.Select(item => new PerguntasViewModel()
+                {
+                    PerguntaId = item.PerguntaId,
+                    Descricao = item.Descricao,
+
+                    Respostas = sjtRN.ListarRespostas(item.PerguntaId).Select(resposta => new RespostasViewModel()
+                    {
+                        RespostaId = resposta.RespostaId,
+                        Descricao = resposta.Descricao
+                    })
+                })
+            };
+
+            return View(viewModel);
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

@@ -17,25 +17,16 @@
             color: white;
         }
 </style>
-<div class="text-center">
+
+<div class="container text-center">
     <h1 class="display-4">SJT - Sua Jornada na Tecnologia</h1>
-    <p>Responda as perguntas abaixo e descubra a Jornada na tecnologia que você esta trilhando.</p>
+    <p>Responda as perguntas e descubra qual Jornada na tecnologia que você esta trilhando.</p>
 </div>
 <br />
+<div class="container text-center">
+    <a asp-area="" asp-controller="Home" asp-action="Perguntas">
+        <button class="btn btn-success" style="width: 100%;"> Clique aqui para começar</button>
+    </a>
+</div>
 
-@foreach (var item in Model.Perguntas)
-{
-    <div class="container">
-        <div class="row">
-            <p>@item.Descricao</p>
-        </div>
-        <div class="row">
-            @foreach (var pergunta in item.Respostas)
-            {
-                <div class="col-sm-6" id="desc" type="button">
-                    <p>@pergunta.Descricao</p>
-                </div>
-            }
-        </div>
-    </div>
-}
+
